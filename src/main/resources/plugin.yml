@@ -1,0 +1,4 @@
+name: ServerManager
+version: 1.0-SNAPSHOT
+author: Blackjack200
+main: com.github.blackjack200.wdpe.ServerManager
