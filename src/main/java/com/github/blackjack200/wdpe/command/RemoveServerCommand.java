@@ -20,10 +20,9 @@ public class RemoveServerCommand extends Command {
 	@Override
 	public boolean onExecute(CommandSender sender, String label, String[] args) {
 		if (!(sender instanceof ConsoleCommandSender)) {
-			return false;
+			return true;
 		}
 		if (args.length < 1) {
-			sender.sendMessage(this.getUsageMessage());
 			return false;
 		}
 		ServerInfo info = ProxyServer.getInstance().removeServerInfo(args[0]);

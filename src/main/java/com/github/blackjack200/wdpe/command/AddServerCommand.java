@@ -22,17 +22,16 @@ public class AddServerCommand extends Command {
 	private static InetSocketAddress addr(String str) {
 		int end = str.lastIndexOf(":");
 		String host = str.substring(0, end);
-		String port = str.substring(end);
+		String port = str.substring(end + 1);
 		return new InetSocketAddress(host, Integer.parseInt(port));
 	}
 
 	@Override
 	public boolean onExecute(CommandSender sender, String label, String[] args) {
 		if (!(sender instanceof ConsoleCommandSender)) {
-			return false;
+			return true;
 		}
 		if (args.length < 3) {
-			sender.sendMessage(this.getUsageMessage());
 			return false;
 		}
 		ServerInfo info = new ServerInfo(args[0], addr(args[1]), addr(args[1]));
