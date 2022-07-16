@@ -5,7 +5,8 @@ import dev.waterdog.waterdogpe.command.Command;
 import dev.waterdog.waterdogpe.command.CommandSender;
 import dev.waterdog.waterdogpe.command.CommandSettings;
 import dev.waterdog.waterdogpe.command.ConsoleCommandSender;
-import dev.waterdog.waterdogpe.network.ServerInfo;
+import dev.waterdog.waterdogpe.network.serverinfo.BedrockServerInfo;
+import dev.waterdog.waterdogpe.network.serverinfo.ServerInfo;
 
 import java.net.InetSocketAddress;
 
@@ -34,7 +35,7 @@ public class AddServerCommand extends Command {
 		if (args.length < 3) {
 			return false;
 		}
-		ServerInfo info = new ServerInfo(args[0], addr(args[1]), addr(args[1]));
+		ServerInfo info = new BedrockServerInfo(args[0], addr(args[1]), addr(args[1]));
 		ProxyServer.getInstance().registerServerInfo(info);
 		sender.sendMessage("Success!");
 		return true;
